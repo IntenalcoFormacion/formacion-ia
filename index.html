@@ -298,7 +298,7 @@
         </div>
       </div>
       <div class="subsections" id="subs-1">
-        <button class="sub-btn" data-week="1" data-idx="0" data-url="https://youtu.be/B-HER0PGNqc"><span class="sub-num">1</span> Crea tu cuenta en NocoDB</button>
+        <button class="sub-btn" data-week="1" data-idx="0" data-url="https://youtube.com/shorts/GUxcXTbdu6E"><span class="sub-num">1</span> Crea tu cuenta en NocoDB</button>
         <button class="sub-btn" data-week="1" data-idx="1"><span class="sub-num">2</span> Nuestra primera base de datos</button>
         <button class="sub-btn" data-week="1" data-idx="2"><span class="sub-num">3</span> Relaciona dos tablas</button>
         <button class="sub-btn" data-week="1" data-idx="3"><span class="sub-num">4</span> ¿Qué es un MCP?</button>
@@ -599,9 +599,11 @@
   }
 
   function toEmbedUrl(url) {
-    // youtu.be/ID  or  youtube.com/watch?v=ID  →  youtube-nocookie.com/embed/ID
+    // youtu.be/ID  or  youtube.com/watch?v=ID  or  youtube.com/shorts/ID
     const short = url.match(/youtu\.be\/([^?&]+)/);
     if (short) return `https://www.youtube-nocookie.com/embed/${short[1]}?rel=0`;
+    const shorts = url.match(/\/shorts\/([^?&]+)/);
+    if (shorts) return `https://www.youtube-nocookie.com/embed/${shorts[1]}?rel=0`;
     const watch = url.match(/[?&]v=([^&]+)/);
     if (watch) return `https://www.youtube-nocookie.com/embed/${watch[1]}?rel=0`;
     return url; // already an embed or other service
