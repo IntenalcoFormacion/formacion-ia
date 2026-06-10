@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Programa de Formación Docente en PC e IA</title>
+  <style>
+    :root {
+      --bg: #252d3a;
+      --surface: #2d3746;
+      --card: #323d50;
+      --border: #3d4d63;
+      --text: #ffffff;
+      --muted: #9bb0c8;
+      --teal: #1ab6c6;
+      --gold: #c9a84c;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      line-height: 1.6;
+    }
+
+    /* HERO */
+    header {
+      background: #2d3443;
+      padding: 60px 40px 50px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 3px solid var(--teal);
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 100%, rgba(26,182,198,.12) 0%, transparent 65%);
+    }
+    header > * { position: relative; }
+
+    .header-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+    .header-logo img { height: 56px; width: auto; mix-blend-mode: screen; }
+
+    header h1 {
+      font-size: clamp(1.6rem, 3.5vw, 2.8rem);
+      font-weight: 800;
+      color: var(--gold);
+      margin-bottom: 12px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    header p.hero-desc {
+      color: var(--muted);
+      font-size: 1rem;
+      max-width: 580px;
+      margin: 0 auto 36px;
+    }
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .stat { text-align: center; }
+    .stat-num { font-size: 2rem; font-weight: 800; color: var(--teal); }
+    .stat-label { color: var(--muted); font-size: .85rem; }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(45,52,67,.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 40px;
+      display: flex;
+      gap: 4px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    nav::-webkit-scrollbar { display: none; }
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: .85rem;
+      font-weight: 600;
+      padding: 16px 14px;
+      white-space: nowrap;
+      border-bottom: 2px solid transparent;
+      transition: color .2s, border-color .2s;
+    }
+    nav a:hover { color: var(--text); }
+    nav a.active { color: var(--teal); border-bottom-color: var(--teal); }
+
+    /* MAIN */
+    main { max-width: 1200px; margin: 0 auto; padding: 40px 24px 60px; }
+
+    /* WEEK ACCORDION */
+    .week {
+      margin-bottom: 12px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      scroll-margin-top: 70px;
+    }
+    .week-header {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 20px 24px;
+      cursor: pointer;
+      user-select: none;
+      transition: background .2s;
+    }
+    .week-header:hover { background: rgba(255,255,255,.04); }
+    .week-number {
+      width: 56px; height: 56px;
+      border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; font-weight: 800; flex-shrink: 0;
+    }
+    .week-info { flex: 1; min-width: 0; }
+    .week-info h2 { font-size: 1.3rem; font-weight: 700; }
+    .week-info p  { color: var(--muted); font-size: .88rem; margin-top: 2px; }
+    .week-chevron {
+      font-size: .9rem; color: var(--muted);
+      transition: transform .3s ease; flex-shrink: 0;
+    }
+    .week-body { display: none; border-top: 1px solid var(--border); }
+    .week.open .week-body    { display: block; }
+    .week.open .week-chevron { transform: rotate(180deg); }
+
+    /* VIDEO ROW */
+    .video-row { display: flex; }
+    .video-stage {
+      position: relative;
+      background: #000;
+      aspect-ratio: 14/13;
+      flex: 0 0 42%;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .video-stage:-webkit-full-screen,
+    .video-stage:-moz-full-screen,
+    .video-stage:fullscreen { aspect-ratio: unset; width: 100vw; height: 100vh; }
+    .video-stage video { width: 100%; height: 100%; object-fit: contain; display: none; }
+    .video-stage video.active { display: block; }
+    .video-stage iframe { width: 100%; height: 100%; border: none; display: none; }
+    .video-stage iframe.active { display: block; }
+    .video-placeholder {
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 16px; color: var(--muted); width: 100%; height: 100%;
+    }
+    .video-placeholder.hidden { display: none; }
+    .play-icon {
+      width: 72px; height: 72px; border-radius: 50%;
+      background: rgba(26,182,198,.2); border: 2px solid rgba(26,182,198,.4);
+      display: flex; align-items: center; justify-content: center; font-size: 1.8rem;
+    }
+    .video-title-overlay {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 32px 20px 16px;
+      background: linear-gradient(transparent, rgba(0,0,0,.8));
+      color: #fff; font-weight: 600; font-size: 1rem;
+    }
+
+    /* DESCRIPTION */
+    .video-description {
+      flex: 1; padding: 20px;
+      border-left: 1px solid var(--border);
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .video-description label {
+      font-size: .75rem; font-weight: 700;
+      letter-spacing: .08em; text-transform: uppercase; color: var(--muted);
+    }
+    .video-description textarea {
+      flex: 1;
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 10px; color: var(--text);
+      font-family: inherit; font-size: .88rem; line-height: 1.6;
+      padding: 12px 14px; resize: none; outline: none; min-height: 120px;
+      transition: border-color .2s;
+    }
+    .video-description textarea::placeholder { color: var(--muted); opacity: .6; }
+    .video-description textarea:focus { border-color: rgba(26,182,198,.5); }
+
+    /* SUBSECTIONS */
+    .subsections {
+      padding: 14px 20px; display: flex; gap: 8px;
+      overflow-x: auto; scrollbar-width: thin;
+      scrollbar-color: var(--border) transparent;
+      border-top: 1px solid var(--border);
+    }
+    .subsections::-webkit-scrollbar { height: 4px; }
+    .subsections::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+    .sub-btn {
+      flex-shrink: 0; background: var(--card); border: 1px solid var(--border);
+      color: var(--muted); font-size: .8rem; font-weight: 600;
+      padding: 8px 16px; border-radius: 20px; cursor: pointer;
+      transition: all .2s; white-space: nowrap;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .sub-btn:hover { color: var(--text); border-color: rgba(26,182,198,.5); }
+    .sub-btn .sub-num {
+      width: 20px; height: 20px; border-radius: 50%;
+      background: var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: .7rem; flex-shrink: 0;
+    }
+
+    /* INFO BAR */
+    .video-info-bar {
+      padding: 12px 20px; border-top: 1px solid var(--border);
+      font-size: .85rem; color: var(--muted);
+    }
+    .video-info-bar strong { color: var(--text); }
+
+    /* WEEK ACCENT COLORS */
+    .w1 .week-number, .w3 .week-number, .w5 .week-number { background: rgba(26,182,198,.2);  color: #1ab6c6; }
+    .w2 .week-number, .w4 .week-number, .w6 .week-number { background: rgba(201,168,76,.2);  color: #c9a84c; }
+    .w1 .sub-btn.active, .w3 .sub-btn.active, .w5 .sub-btn.active { background: rgba(26,182,198,.15);  border-color: rgba(26,182,198,.6);  color: #1ab6c6; }
+    .w2 .sub-btn.active, .w4 .sub-btn.active, .w6 .sub-btn.active { background: rgba(201,168,76,.15);  border-color: rgba(201,168,76,.6);  color: #c9a84c; }
+
+    /* FOOTER */
+    footer {
+      text-align: center; padding: 40px 24px;
+      color: var(--muted); font-size: .85rem;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 768px) {
+      .video-row { flex-direction: column; }
+      .video-stage { flex: none; width: 100%; }
+      .video-description { border-left: none; border-top: 1px solid var(--border); }
+      .video-description textarea { min-height: 80px; }
+    }
+    @media (max-width: 640px) {
+      header { padding: 40px 20px 32px; }
+      .hero-stats { gap: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-logo">
+    <img src="logo.png" alt="INTENALCO" />
+  </div>
+  <h1>Programa de Formación Docente en Pensamiento Computacional e IA</h1>
+  <p class="hero-desc">Guía de contenidos desarrollados en el curso presencial con videos paso a paso de los detalles más importantes.</p>
+</header>
+
+<nav id="week-nav">
+  <a href="#week1">Semana 1</a>
+  <a href="#week2">Semana 2</a>
+  <!-- <a href="#week3">Semana 3</a>
+  <a href="#week4">Semana 4</a>
+  <a href="#week5">Semana 5</a>
+  <a href="#week6">Semana 6</a> -->
+</nav>
+
+<main>
+
+  <!-- SEMANA 1 -->
+  <section class="week w1" id="week1" data-week="1">
+    <div class="week-header">
+      <div class="week-number">S1</div>
+      <div class="week-info">
+        <h2>Bases de datos y MCP</h2>
+        <p>Como usar NocoDB y enlazarlo a Claude</p>
+      </div>
+      <span class="week-chevron">▼</span>
+    </div>
+    <div class="week-body">
+      <div class="video-row">
+        <div class="video-stage">
+          <div class="video-placeholder" id="ph-1"><div class="play-icon">▶</div><span>Selecciona una subsección para reproducir su video</span></div>
+          <video id="vid-1" controls></video>
+          <iframe id="yt-1" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+          <div class="video-title-overlay" id="vtitle-1" style="display:none"></div>
+        </div>
+        <div class="video-description">
+          <label>Descripción</label>
+          <textarea id="desc-1" placeholder="Descripción del video..."></textarea>
+        </div>
+      </div>
+      <div class="subsections" id="subs-1">
+        <button class="sub-btn" data-week="1" data-idx="0" data-url="https://youtu.be/DqSHUndof4o"><span class="sub-num">1</span> Crea tu cuenta en NocoDB</button>
+        <button class="sub-btn" data-week="1" data-idx="1"><span class="sub-num">2</span> Nuestra primera base de datos</button>
+        <button class="sub-btn" data-week="1" data-idx="2"><span class="sub-num">3</span> Crea tu cuenta en NocoDB</button>
+        <button class="sub-btn" data-week="1" data-idx="3"><span class="sub-num">4</span> ¿Qué es un MCP?</button>
+        <button class="sub-btn" data-week="1" data-idx="4"><span class="sub-num">5</span> Conecta NocoDB a Claude</button>
+        <button class="sub-btn" data-week="1" data-idx="5"><span class="sub-num">6</span> Reto de la semana</button>
+      </div>
+      <div class="video-info-bar"><span id="info-1"><strong>Semana 1</strong> — selecciona una subsección</span></div>
+    </div>
+  </section>
+
+  <!-- SEMANA 2 -->
+  <section class="week w2" id="week2" data-week="2">
+    <div class="week-header">
+      <div class="week-number">S2</div>
+      <div class="week-info">
+        <h2>Automatizaciones con IA</h2>
+        <p>Como crear un flujo de automatización en n8n y enlazarlo a la IA</p>
+      </div>
+      <span class="week-chevron">▼</span>
+    </div>
+    <div class="week-body">
+      <div class="video-row">
+        <div class="video-stage">
+          <div class="video-placeholder" id="ph-2"><div class="play-icon">▶</div><span>Selecciona una subsección para reproducir su video</span></div>
+          <video id="vid-2" controls></video>
+          <iframe id="yt-2" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+          <div class="video-title-overlay" id="vtitle-2" style="display:none"></div>
+        </div>
+        <div class="video-description">
+          <label>Descripción</label>
+          <textarea id="desc-2" placeholder="Descripción del video..."></textarea>
+        </div>
+      </div>
+      <div class="subsections" id="subs-2">
+        <button class="sub-btn" data-week="2" data-idx="0"><span class="sub-num">1</span> El flujo que vamos a construir hoy</button>
+        <button class="sub-btn" data-week="2" data-idx="1"><span class="sub-num">2</span> ¿Qué es n8n?</button>
+        <button class="sub-btn" data-week="2" data-idx="2"><span class="sub-num">3</span> Accede a n8n</button>
+        <button class="sub-btn" data-week="2" data-idx="3"><span class="sub-num">4</span> Configura tu buzón de pruebas</button>
+        <button class="sub-btn" data-week="2" data-idx="4"><span class="sub-num">5</span> Obtén tu clave de Gemini</button>
+        <button class="sub-btn" data-week="2" data-idx="5"><span class="sub-num">6</span> Crea tu primer flujo en n8n</button>
+        <button class="sub-btn" data-week="2" data-idx="6"><span class="sub-num">7</span> Reto de la semana</button>
+      </div>
+      <div class="video-info-bar"><span id="info-2"><strong>Semana 2</strong> — selecciona una subsección</span></div>
+    </div>
+  </section>
+
+  <!--
+  SEMANA 3
+  <section class="week w3" id="week3" data-week="3">
+    <div class="week-header">
+      <div class="week-number">S3</div>
+      <div class="week-info">
+        <h2>Visualización de Datos</h2>
+        <p>Matplotlib, Seaborn y gráficos interactivos con Plotly</p>
+      </div>
+      <span class="week-chevron">▼</span>
+    </div>
+    <div class="week-body">
+      <div class="video-row">
+        <div class="video-stage">
+          <div class="video-placeholder" id="ph-3"><div class="play-icon">▶</div><span>Selecciona una subsección para reproducir su video</span></div>
+          <video id="vid-3" controls></video>
+          <iframe id="yt-3" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+          <div class="video-title-overlay" id="vtitle-3" style="display:none"></div>
+        </div>
+        <div class="video-description">
+          <label>Descripción</label>
+          <textarea id="desc-3" placeholder="Descripción del video..."></textarea>
+        </div>
+      </div>
+      <div class="subsections" id="subs-3">
+        <button class="sub-btn" data-week="3" data-idx="0"><span class="sub-num">1</span> Fundamentos de Matplotlib</button>
+        <button class="sub-btn" data-week="3" data-idx="1"><span class="sub-num">2</span> Gráficos de Línea y Barras</button>
+        <button class="sub-btn" data-week="3" data-idx="2"><span class="sub-num">3</span> Distribuciones e Histogramas</button>
+        <button class="sub-btn" data-week="3" data-idx="3"><span class="sub-num">4</span> Mapas de Calor con Seaborn</button>
+        <button class="sub-btn" data-week="3" data-idx="4"><span class="sub-num">5</span> Gráficos Interactivos con Plotly</button>
+        <button class="sub-btn" data-week="3" data-idx="5"><span class="sub-num">6</span> Mini-Proyecto: Dashboard Visual</button>
+      </div>
+      <div class="video-info-bar"><span id="info-3"><strong>Semana 3</strong> — selecciona una subsección</span></div>
+    </div>
+  </section>
+
+  SEMANA 4
+  <section class="week w4" id="week4" data-week="4">
+    <div class="week-header">
+      <div class="week-number">S4</div>
+      <div class="week-info">
+        <h2>Estadística y Análisis Exploratorio</h2>
+        <p>Estadística descriptiva, probabilidad, pruebas de hipótesis y flujos de trabajo de EDA</p>
+      </div>
+      <span class="week-chevron">▼</span>
+    </div>
+    <div class="week-body">
+      <div class="video-row">
+        <div class="video-stage">
+          <div class="video-placeholder" id="ph-4"><div class="play-icon">▶</div><span>Selecciona una subsección para reproducir su video</span></div>
+          <video id="vid-4" controls></video>
+          <iframe id="yt-4" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+          <div class="video-title-overlay" id="vtitle-4" style="display:none"></div>
+        </div>
+        <div class="video-description">
+          <label>Descripción</label>
+          <textarea id="desc-4" placeholder="Descripción del video..."></textarea>
+        </div>
+      </div>
+      <div class="subsections" id="subs-4">
+        <button class="sub-btn" data-week="4" data-idx="0"><span class="sub-num">1</span> Estadística Descriptiva</button>
+        <button class="sub-btn" data-week="4" data-idx="1"><span class="sub-num">2</span> Fundamentos de Probabilidad</button>
+        <button class="sub-btn" data-week="4" data-idx="2"><span class="sub-num">3</span> Distribuciones de Probabilidad</button>
+        <button class="sub-btn" data-week="4" data-idx="3"><span class="sub-num">4</span> Pruebas de Hipótesis</button>
+        <button class="sub-btn" data-week="4" data-idx="4"><span class="sub-num">5</span> Correlación y Causalidad</button>
+        <button class="sub-btn" data-week="4" data-idx="5"><span class="sub-num">6</span> Análisis Exploratorio Completo (EDA)</button>
+      </div>
+      <div class="video-info-bar"><span id="info-4"><strong>Semana 4</strong> — selecciona una subsección</span></div>
+    </div>
+  </section>
+
+  SEMANA 5
+  <section class="week w5" id="week5" data-week="5">
+    <div class="week-header">
+      <div class="week-number">S5</div>
+      <div class="week-info">
+        <h2>Fundamentos de Machine Learning</h2>
+        <p>Aprendizaje supervisado, regresión, clasificación y scikit-learn</p>
+      </div>
+      <span class="week-chevron">▼</span>
+    </div>
+    <div class="week-body">
+      <div class="video-row">
+        <div class="video-stage">
+          <div class="video-placeholder" id="ph-5"><div class="play-icon">▶</div><span>Selecciona una subsección para reproducir su video</span></div>
+          <video id="vid-5" controls></video>
+          <iframe id="yt-5" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+          <div class="video-title-overlay" id="vtitle-5" style="display:none"></div>
+        </div>
+        <div class="video-description">
+          <label>Descripción</label>
+          <textarea id="desc-5" placeholder="Descripción del video..."></textarea>
+        </div>
+      </div>
+      <div class="subsections" id="subs-5">
+        <button class="sub-btn" data-week="5" data-idx="0"><span class="sub-num">1</span> Panorama del Machine Learning</button>
+        <button class="sub-btn" data-week="5" data-idx="1"><span class="sub-num">2</span> Regresión Lineal</button>
+        <button class="sub-btn" data-week="5" data-idx="2"><span class="sub-num">3</span> Regresión Logística</button>
+        <button class="sub-btn" data-week="5" data-idx="3"><span class="sub-num">4</span> Árboles de Decisión y Random Forests</button>
+        <button class="sub-btn" data-week="5" data-idx="4"><span class="sub-num">5</span> Evaluación de Modelos</button>
+        <button class="sub-btn" data-week="5" data-idx="5"><span class="sub-num">6</span> Ingeniería de Variables (Feature Engineering)</button>
+        <button class="sub-btn" data-week="5" data-idx="6"><span class="sub-num">7</span> Validación Cruzada (Cross-Validation)</button>
+      </div>
+      <div class="video-info-bar"><span id="info-5"><strong>Semana 5</strong> — selecciona una subsección</span></div>
+    </div>
+  </section>
+
+  SEMANA 6
+  <section class="week w6" id="week6" data-week="6">
+    <div class="week-header">
+      <div class="week-number">S6</div>
+      <div class="week-info">
+        <h2>ML Avanzado y Aprendizaje No Supervisado</h2>
+        <p>Clustering, reducción de dimensionalidad, pipelines y ajuste de hiperparámetros</p>
+      </div>
+      <span class="week-chevron">▼</span>
+    </div>
+    <div class="week-body">
+      <div class="video-row">
+        <div class="video-stage">
+          <div class="video-placeholder" id="ph-6"><div class="play-icon">▶</div><span>Selecciona una subsección para reproducir su video</span></div>
+          <video id="vid-6" controls></video>
+          <iframe id="yt-6" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+          <div class="video-title-overlay" id="vtitle-6" style="display:none"></div>
+        </div>
+        <div class="video-description">
+          <label>Descripción</label>
+          <textarea id="desc-6" placeholder="Descripción del video..."></textarea>
+        </div>
+      </div>
+      <div class="subsections" id="subs-6">
+        <button class="sub-btn" data-week="6" data-idx="0"><span class="sub-num">1</span> Clustering con K-Means</button>
+        <button class="sub-btn" data-week="6" data-idx="1"><span class="sub-num">2</span> Clustering Jerárquico</button>
+        <button class="sub-btn" data-week="6" data-idx="2"><span class="sub-num">3</span> Reducción de Dimensionalidad: PCA y t-SNE</button>
+        <button class="sub-btn" data-week="6" data-idx="3"><span class="sub-num">4</span> Máquinas de Vectores de Soporte (SVM)</button>
+        <button class="sub-btn" data-week="6" data-idx="4"><span class="sub-num">5</span> Pipelines con scikit-learn</button>
+        <button class="sub-btn" data-week="6" data-idx="5"><span class="sub-num">6</span> Ajuste de Hiperparámetros</button>
+      </div>
+      <div class="video-info-bar"><span id="info-6"><strong>Semana 6</strong> — selecciona una subsección</span></div>
+    </div>
+  </section>
+  -->
+
+</main>
+
+<footer>
+  <p>INTENALCO &nbsp;·&nbsp; Programa de Formación Docente en PC e IA &nbsp;·&nbsp; 6 Semanas</p>
+</footer>
+
+<script>
+  const activeIdx  = {};
+  const VIDEO_EXTS = ['mp4', 'webm', 'mov', 'avi', 'mkv'];
+
+  // Accordion
+  document.querySelectorAll('.week-header').forEach(header => {
+    header.addEventListener('click', () => {
+      const section = header.closest('.week');
+      const isOpen  = section.classList.contains('open');
+      document.querySelectorAll('.week').forEach(w => w.classList.remove('open'));
+      if (!isOpen) {
+        section.classList.add('open');
+        const week = parseInt(section.dataset.week);
+        selectSub(week, 0);
+      }
+    });
+  });
+
+  // Nav links open the target week
+  document.querySelectorAll('#week-nav a').forEach(a => {
+    a.addEventListener('click', () => {
+      const target = document.getElementById(a.getAttribute('href').slice(1));
+      if (target) {
+        document.querySelectorAll('.week').forEach(w => w.classList.remove('open'));
+        target.classList.add('open');
+      }
+    });
+  });
+
+  // Try each extension by loading into a temp video element (works with file:// and http://)
+  function findVideo(base) {
+    return new Promise(resolve => {
+      let i = 0;
+      function tryNext() {
+        if (i >= VIDEO_EXTS.length) { resolve(null); return; }
+        const url = `${base}/video.${VIDEO_EXTS[i++]}`;
+        const t = document.createElement('video');
+        t.preload = 'metadata';
+        t.onloadedmetadata = () => { t.src = ''; resolve(url); };
+        t.onerror = tryNext;
+        t.src = url;
+      }
+      tryNext();
+    });
+  }
+
+  // Load video + description from content/semana{w}/sub{idx+1}/
+  async function selectSub(week, idx) {
+    activeIdx[week] = idx;
+
+    document.querySelectorAll(`#subs-${week} .sub-btn`)
+      .forEach(b => b.classList.toggle('active', parseInt(b.dataset.idx) === idx));
+
+    const vid      = document.getElementById(`vid-${week}`);
+    const yt       = document.getElementById(`yt-${week}`);
+    const ph       = document.getElementById(`ph-${week}`);
+    const vtitle   = document.getElementById(`vtitle-${week}`);
+    const info     = document.getElementById(`info-${week}`);
+    const textarea = document.getElementById(`desc-${week}`);
+    const btn      = document.querySelector(`#subs-${week} .sub-btn[data-idx="${idx}"]`);
+    const name     = btn ? btn.textContent.replace(/^\s*\d+\s*/, '').trim() : `Subsección ${idx + 1}`;
+    const base     = `content/semana${week}/sub${idx + 1}`;
+
+    info.innerHTML = `<strong>Semana ${week} · ${name}</strong>`;
+
+    // Reset both players
+    vid.pause(); vid.removeAttribute('src'); vid.classList.remove('active');
+    yt.src = ''; yt.classList.remove('active');
+    ph.classList.remove('hidden');
+    vtitle.style.display = 'none';
+
+    // Load description text
+    if (textarea) {
+      try {
+        const r = await fetch(`${base}/descripcion.txt`);
+        textarea.value = r.ok ? (await r.text()).trim() : '';
+      } catch { textarea.value = ''; }
+    }
+
+    // Use data-url attribute on button (YouTube/external), else try local file
+    const rawUrl = btn ? btn.dataset.url : '';
+    let loaded = false;
+    if (rawUrl) {
+      yt.src = toEmbedUrl(rawUrl);
+      yt.classList.add('active');
+      ph.classList.add('hidden');
+      vtitle.textContent   = name;
+      vtitle.style.display = 'block';
+      loaded = true;
+    }
+
+    if (!loaded) {
+      const videoUrl = await findVideo(base);
+      if (videoUrl) {
+        vid.src = videoUrl;
+        vid.classList.add('active');
+        ph.classList.add('hidden');
+        vtitle.textContent   = name;
+        vtitle.style.display = 'block';
+        vid.load();
+      }
+    }
+  }
+
+  function toEmbedUrl(url) {
+    // youtu.be/ID  or  youtube.com/watch?v=ID  →  youtube-nocookie.com/embed/ID
+    const short = url.match(/youtu\.be\/([^?&]+)/);
+    if (short) return `https://www.youtube-nocookie.com/embed/${short[1]}?rel=0`;
+    const watch = url.match(/[?&]v=([^&]+)/);
+    if (watch) return `https://www.youtube-nocookie.com/embed/${watch[1]}?rel=0`;
+    return url; // already an embed or other service
+  }
+
+  document.querySelectorAll('.sub-btn').forEach(btn => {
+    btn.addEventListener('click', () =>
+      selectSub(parseInt(btn.dataset.week), parseInt(btn.dataset.idx))
+    );
+  });
+
+  // Sticky nav highlight
+  const navLinks = document.querySelectorAll('#week-nav a');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === `#${id}`));
+      }
+    });
+  }, { rootMargin: '-40% 0px -55% 0px' });
+  document.querySelectorAll('.week').forEach(s => observer.observe(s));
+</script>
+</body>
+</html>

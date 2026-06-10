@@ -1,0 +1,15 @@
+﻿
+**Descripción de NocoDB:**
+
+NocoDB es una plataforma **open-source** (de código abierto) que funciona como una alternativa gratuita y self-hostable a **Airtable**. Básicamente, convierte cualquier base de datos tradicional (como MySQL, PostgreSQL, SQLite, MariaDB o SQL Server) en una interfaz de hoja de cálculo inteligente y fácil de usar, permitiendo crear, gestionar y colaborar en bases de datos sin necesidad de escribir código SQL complejo. Ofrece vistas potentes como Grid, Kanban, Gallery, Formulario y Calendar, además de campos avanzados (fórmulas, lookups, attachments, etc.), automatizaciones y APIs. 
+
+Lo que la hace especialmente interesante es que combina la simplicidad del **no-code** con la potencia y soberanía de datos de una base de datos real: puedes autoalojarla en tu propio servidor (evitando depender de servicios en la nube caros), mantener el control total de tus datos, escalar sin límites de precio y colaborar en tiempo real con tu equipo. Es ideal para startups, equipos técnicos y empresas que buscan una herramienta potente, flexible y económica para gestionar proyectos, CRM, inventarios o cualquier aplicación interna.
+
+**Base de datos relacional**
+
+Una base de datos relacional es un tipo de base de datos que organiza la información en tablas relacionadas entre sí. Cada tabla está formada por filas (registros) y columnas (campos), y las relaciones entre tablas se establecen mediante claves (como la clave primaria y clave foránea). Este modelo, basado en la teoría relacional, permite almacenar datos de forma estructurada, evitar duplicidad y consultar la información de manera eficiente utilizando el lenguaje SQL. Ejemplos populares son PostgreSQL, MySQL y SQLite.
+
+** Crea tu cuenta **
+
+Sigue los pasos del video y crea tu cuenta en NocoDB. Para los propositos del curso usa un correo de gmail preferiblemente.
+
