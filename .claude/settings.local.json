@@ -6,7 +6,8 @@
       "PowerShell(Start-Process msedge \"https://intenalco1.carrd.co\")",
       "mcp__Claude_Preview__preview_start",
       "Bash(Rename-Item \"C:\\\\Users\\\\hiarc\\\\OneDrive\\\\Claude\\\\FormacionIA\\\\content\\\\semana1\\\\sub1\\\\Screen Recording 2026-06-09 192614.mp4\" \"video.mp4\")",
-      "WebFetch(domain:intenalco2.carrd.co)"
+      "WebFetch(domain:intenalco2.carrd.co)",
+      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\hiarc\\\\OneDrive\\\\Claude\\\\FormacionIA\\\\content\\\\semana1\" -Recurse | Where-Object { !$_.PSIsContainer } | Select-Object FullName)"
     ]
   }
 }
