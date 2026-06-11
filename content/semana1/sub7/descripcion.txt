@@ -1,1 +1,11 @@
-﻿
+﻿** Reto de la Semana **
+
+Si has logrado realizar todos los pasos anteriores, estas listo para intentar otros ejemplos.
+
+Los siguientes son los links a dos archivos de datos alojados en GitHub:
+
+https://github.com/IntenalcoFormacion/datasets/blob/f3a7adf6d6552c48b4682d78712ced15d353d160/L1_cafeteria_intenalco.csv
+https://github.com/IntenalcoFormacion/datasets/blob/f3a7adf6d6552c48b4682d78712ced15d353d160/L2_nomina_limpia.csv
+
+Incorporalos a una base en NocoDB y usa Claude para que te haga un resumen de la informacion contenida en las tablas. Genera un grafico con Claude si
+lo consideras util.
