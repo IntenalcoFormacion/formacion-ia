@@ -1,1 +1,12 @@
-﻿
+﻿** Que es GitHub **
+
+GitHub se utiliza para almacenar información principalmente porque permite guardar código, documentos y proyectos de forma segura, centralizada y con **control de versiones**. Gracias a Git, registra cada cambio realizado, facilitando volver a versiones anteriores, trabajar en equipo de manera simultánea y colaborar de forma eficiente mediante branches, pull requests y revisiones de código. Además, ofrece respaldo automático, visibilidad pública o privada, y acceso desde cualquier lugar, lo que lo convierte en una de las mejores plataformas para desarrollar software, documentar proyectos y gestionar conocimiento de forma organizada y transparente.
+
+** Formato CSV **
+
+Un archivo CSV (Comma-Separated Values) es un tipo de archivo de texto plano que se utiliza para almacenar datos tabulares, donde cada línea representa una fila y los valores de cada columna están separados por comas. Es uno de los formatos más simples y universales para intercambiar información entre diferentes programas. Se usa mucho porque es ligero, fácil de leer y editar (incluso con un bloc de notas), compatible con Excel, Google Sheets, bases de datos y lenguajes de programación, y permite importar o exportar grandes cantidades de datos de forma rápida y sin complicaciones.
+
+** Formato JSON **
+
+JSON (JavaScript Object Notation) es un formato más estructurado y flexible que permite datos jerárquicos (objetos anidados, arrays y valores clave-valor). Es el estándar en el desarrollo web y APIs. Usa CSV cuando tienes datos simples y tabulares. Usa JSON cuando necesitas representar relaciones, listas dentro de listas o datos más complejos.
+
