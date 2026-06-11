@@ -10,5 +10,5 @@ Con la conexión MCP a NocoDB Claude puede hacer varias cosas útiles. Aquí un 
 3. **Calcular estadísticas básicas** — Promedio por estudiante, nota más alta/baja, distribución de calificaciones.
 4. **Reportar** — Te presenta un resumen claro con los hallazgos.
 
-Este proceso es posible hacerlo directamente en NocoDB, pero te tomara mucho mas tiempo que lo que le toma a Claude. Esta es una de las 
-grandes ventajas de la asistencia de la IA a nuestro analisis de datos.
+Este proceso es posible hacerlo directamente en NocoDB, pero te tomará mucho más tiempo que lo que le toma a Claude. Esta es una de las
+grandes ventajas de la asistencia de la IA a nuestro análisis de datos.

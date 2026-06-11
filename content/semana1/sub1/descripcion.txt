@@ -11,6 +11,6 @@ Una base de datos relacional es un tipo de base de datos que organiza la informa
 
 ** Crea tu cuenta **
 
-Recuerda que la pagina del curso es: https://intenalco.carrd.co/ 
-Sigue los pasos del video y crea tu cuenta en NocoDB. Para los propositos del curso usa un correo de gmail preferiblemente.
+Recuerda que la página del curso es: https://intenalco.carrd.co/
+Sigue los pasos del video y crea tu cuenta en NocoDB. Para los propósitos del curso usa un correo de Gmail preferiblemente.
 

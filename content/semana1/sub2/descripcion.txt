@@ -1,4 +1,4 @@
-﻿** Que es GitHub **
+﻿** ¿Qué es GitHub? **
 
 GitHub se utiliza para almacenar información principalmente porque permite guardar código, documentos y proyectos de forma segura, centralizada y con **control de versiones**. Gracias a Git, registra cada cambio realizado, facilitando volver a versiones anteriores, trabajar en equipo de manera simultánea y colaborar de forma eficiente mediante branches, pull requests y revisiones de código. Además, ofrece respaldo automático, visibilidad pública o privada, y acceso desde cualquier lugar, lo que lo convierte en una de las mejores plataformas para desarrollar software, documentar proyectos y gestionar conocimiento de forma organizada y transparente.
 
