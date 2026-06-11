@@ -1,1 +1,14 @@
 ﻿
+** Como nos ayuda Claude ? **
+
+Con la conexión MCP a NocoDB Claude puede hacer varias cosas útiles. Aquí un proceso sencillo y práctico:
+
+**Análisis de rendimiento académico**
+
+1. **Leer las tablas** — Consulta `estudiantes` y `notas` para ver su estructura y datos.
+2. **Cruzar la información** — Identifica qué estudiante corresponde a cada nota.
+3. **Calcular estadísticas básicas** — Promedio por estudiante, nota más alta/baja, distribución de calificaciones.
+4. **Reportar** — Te presenta un resumen claro con los hallazgos.
+
+Este proceso es posible hacerlo directamente en NocoDB, pero te tomara mucho mas tiempo que lo que le toma a Claude. Esta es una de las 
+grandes ventajas de la asistencia de la IA a nuestro analisis de datos.
