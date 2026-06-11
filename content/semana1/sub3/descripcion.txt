@@ -1,1 +1,6 @@
 ﻿
+** Tipos de Vinculos **
+
+En una base de datos relacional, los vínculos (o relaciones) entre tablas definen cómo se conectan los registros. Un vínculo uno a uno significa que cada registro de una tabla se relaciona con exactamente un registro de otra tabla (por ejemplo, una persona y su pasaporte). Un vínculo uno a varios (o uno a muchos) indica que un registro de la tabla principal puede relacionarse con varios registros de la tabla secundaria (como un cliente y sus múltiples pedidos). Por último, un vínculo varios a uno es la vista inversa del anterior: varios registros de una tabla se relacionan con un solo registro de la otra (muchos pedidos pertenecen a un mismo cliente). Estas relaciones se establecen mediante claves primarias y foráneas.
+
+Finalmente, un vínculo muchos a muchos significa que un registro de una tabla puede relacionarse con varios de la otra y viceversa (ej.: estudiantes y cursos, donde un estudiante puede tomar varios cursos y un curso puede tener varios estudiantes). Este último suele requerir una tabla intermedia (o tabla de unión) para gestionarlo correctamente.
