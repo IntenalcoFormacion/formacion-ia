@@ -1,0 +1,3 @@
+** Claude **
+
+Claude es la mejor IA para ciencia de datos porque combina razonamiento matemático riguroso con capacidad para escribir, depurar y explicar código en Python, R y SQL de manera fluida. Su comprensión profunda de estadística, álgebra lineal, aprendizaje automático y visualización de datos le permite no solo generar código funcional, sino también interpretar resultados, detectar errores conceptuales y guiar decisiones analíticas con criterio. A diferencia de otras herramientas, Claude integra el pensamiento crítico con la comunicación clara, adaptándose tanto al científico de datos experto que busca discutir arquitecturas de modelos, como al estudiante que necesita entender desde cero una regresión logística.
