@@ -1,1 +1,5 @@
 ﻿
+** Crea tu cuenta en n8n **
+
+Para los propositos del curso, hemos creado una zona de trabajo a la cual accedes por invitacion. Revisa tu correo registrado con nosotros y la encontraras.
+Con esta invitacion crearas tu usuario en n8n y todos tus proyectos dentro del mismo podran ser revisados por nosotros para el seguimiento y evaluacion.
