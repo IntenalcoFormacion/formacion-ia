@@ -1,1 +1,6 @@
 ﻿
+** Que es Mailtrap ? **
+
+Mailtrap es una herramienta en la nube que funciona como un **sandbox** (entorno de pruebas aislado y seguro) para correos electrónicos. En lugar de enviar emails reales durante el desarrollo, Mailtrap los captura y los almacena en un buzón de prueba, permitiendo a los desarrolladores inspeccionar el contenido, HTML, enlaces, adjuntos y estadísticas sin riesgo de enviar spam a usuarios reales. Es muy útil para probar flujos de correos electrónicos de forma segura antes de ponerlos en producción.
+
+En este lenguaje, el proceso de desarrollo equivale al proceso de creación de software o de herramientas automatizadas en nuestro caso. Y la etapa de producción equivale a aquel estadio en el cual el software o herramienta esta finalizado y puede ser usado confiablemente.
