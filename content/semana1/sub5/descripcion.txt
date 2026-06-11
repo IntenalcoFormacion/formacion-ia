@@ -1,1 +1,13 @@
-﻿
+﻿** MCP y Claude **
+
+Un MCP (Model Context Protocol) es un protocolo abierto que permite a las Inteligencias Artificiales (como Claude, Grok, etc.) conectarse de forma segura y estructurada a herramientas externas, bases de datos y aplicaciones.
+¿Por qué es útil vincular una IA a NocoDB mediante MCP?
+Permite que la IA lea, escriba y gestione datos directamente en NocoDB de manera inteligente y en tiempo real.
+En lugar de copiar y pegar información manualmente, la IA puede:
+
+1. Consultar bases de datos completas
+2. Crear registros
+3. Actualizar información
+4. Automatizar flujos de trabajo
+
+Todo de forma segura y con permisos controlados. Esto convierte a NocoDB en una memoria externa o “base de conocimiento viva” para la IA, haciendo que sea mucho más poderosa para automatizaciones, asistentes inteligentes y aplicaciones internas.
