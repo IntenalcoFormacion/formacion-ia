@@ -1,1 +1,20 @@
 ﻿
+**Para que sirve n8n**
+
+**n8n** es una herramienta de automatización de flujos de trabajo (workflow automation) de código abierto y gratuita que permite conectar diferentes aplicaciones, servicios y bases de datos de forma visual y sin necesidad de programar mucho. Funciona de manera similar a Zapier o Make, pero se puede instalar en tu propio servidor (self-hosted), lo que te da mayor control, privacidad y cero costos por automatización. Con n8n puedes crear flujos automatizados como sincronizar datos entre NocoDB y otras apps, enviar notificaciones, procesar formularios o integrar IAs, todo mediante nodos arrastrables y conectables.
+
+Ejemplo sencillo de un Flujo de Trabajo (Workflow):
+
+Imagina que tienes un formulario web donde los clientes dejan sus datos. Un flujo de trabajo automatizado podría ser el siguiente:
+
+1. Una persona llena un formulario de contacto.
+2. El formulario envía los datos automáticamente a NocoDB (crea un nuevo registro en la tabla "Leads").
+3. n8n detecta el nuevo registro.
+4. n8n envía un correo electrónico de bienvenida al cliente.
+5. Al mismo tiempo, crea una tarea en ClickUp o Trello para el equipo de ventas.
+6. Si el cliente marca que quiere recibir ofertas, n8n lo agrega a una lista de Mailchimp.
+
+Este flujo completo se ejecuta solo, sin que tú intervengas manualmente.
+
+En resumen:
+Un flujo de trabajo es una secuencia automática de pasos conectados que ejecutan tareas repetitivas, ahorrando tiempo y reduciendo errores.
