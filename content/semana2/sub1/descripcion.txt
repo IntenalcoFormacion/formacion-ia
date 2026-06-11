@@ -1,1 +1,12 @@
-﻿
+﻿** Construccion de un flujo de trabajo con n8n **
+
+En el video puedes observar la forma final que Debera tener el flujo a realizar. Este flujo comienza con un formulario en NocoDB con el cual captaremos la opinion de los clientes de una empresa de electrodomesticos acerca de los productos adquiridos.
+Al integrar NocoDB con n8n, este ultimo detecta el momento en que es registrada una respuesta al formulario y accede a la informacion. Este es el nodo inicial.
+
+En un siguiente nodo, n8n tomara la informacion de cada formulario y con ayuda de Gemini clasificara la respuesta u opinion del usuario sobre el producto en al menos dos categorias: Positiva o negativa.
+
+Y en un nodo final, se enviara un correo al cliente agradeciendo su opinion si esta es positiva o se escribira al soporte tecnico si la respuesta es negativa. En el caso negativo Tambien se le puede escribir al cliente diciendole que le contactaran en soporte tecnico para resolver sus problemas.
+
+
+
+
