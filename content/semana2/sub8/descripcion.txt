@@ -1,0 +1,12 @@
+** El nodo de correo en n8n **
+
+El nodo de Correo Electrónico (Send Email) en n8n es un componente que permite enviar emails de forma automatizada dentro de un flujo de trabajo.
+Con este nodo puedes:
+
+Enviar correos a uno o varios destinatarios
+Personalizar asunto, cuerpo del mensaje (texto plano o HTML)
+Adjuntar archivos
+Usar plantillas dinámicas con datos de pasos anteriores
+Configurar el servidor SMTP (Gmail, Outlook, Mailtrap, Amazon SES, etc.)
+
+Es uno de los nodos más usados para notificaciones automáticas, confirmaciones de registros, alertas o campañas de correo. También existe el nodo IMAP Email para recibir y leer correos entrantes.
