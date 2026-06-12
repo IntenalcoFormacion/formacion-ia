@@ -1,1 +1,4 @@
 ﻿
+** webhook **
+
+Un **webhook** es una forma en que una aplicación avisa automáticamente a otra cuando ocurre un evento, enviando datos en tiempo real mediante una solicitud HTTP a una URL predefinida. En lugar de que tu aplicación esté preguntando constantemente "¿hay algo nuevo?" (*polling*), el sistema externo te "empuja" la información en el momento exacto en que sucede algo. Es como dejar tu número de teléfono para que te llamen cuando tu pedido esté listo, en vez de llamar tú cada cinco minutos a preguntar.
