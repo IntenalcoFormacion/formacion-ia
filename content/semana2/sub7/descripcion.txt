@@ -1,0 +1,7 @@
+** Que es el analisis de sentimiento ? **
+
+Un **nodo de Análisis de Sentimiento** en n8n es un componente que utiliza inteligencia artificial (normalmente mediante Gemini, OpenAI, Grok, Hugging Face u otros modelos) para analizar automáticamente el tono emocional de un texto. 
+
+Detecta si el sentimiento es **positivo**, **negativo** o **neutral**, y en algunos casos también devuelve una puntuación de intensidad. 
+
+Se usa mucho en flujos de trabajo para analizar comentarios de clientes, reseñas, correos o mensajes en redes sociales y tomar decisiones automáticas según el sentimiento detectado.
