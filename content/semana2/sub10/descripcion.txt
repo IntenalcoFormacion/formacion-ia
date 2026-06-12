@@ -1,1 +1,5 @@
-﻿
+﻿** Finalización y reto **
+
+Como ultimo paso configura el nodo de ** Send Email ** para el caso de una respuesta positiva. Puedes crear otra respuesta en el formulario de NocoDB y ensayar que la procesas adecuadamente.
+
+Como reto posterior puedes cambiar el escenario de electrodomésticos por un caso real de tu contexto — reseñas de un servicio educativo, retroalimentación de clientes de una empresa importadora, evaluaciones de un programa académico. Ajusta el prompt de Gemini para que el tono y el vocabulario correspondan a ese contexto. Crea el flujo de trabajo y verifica que todo funcione !
