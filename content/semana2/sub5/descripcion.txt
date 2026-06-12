@@ -1,1 +1,6 @@
 ﻿
+** Que es una llave API ? **
+
+Una **llave API** (API Key) es un código secreto que funciona como una contraseña digital. Sirve para identificar y autenticar a un usuario o aplicación cuando se conecta a un servicio externo. API significa Application Programming Interface (Interfaz de Programación de Aplicaciones)
+
+Una IA como Gemini usa llaves API para acceder de forma segura a herramientas externas, como bases de datos (NocoDB), servicios de email (Mailtrap), automatizaciones (n8n) o cualquier otra plataforma. Gracias a la llave API, la IA puede leer o escribir información en esos servicios sin comprometer la seguridad.
