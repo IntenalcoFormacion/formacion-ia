@@ -1,0 +1,17 @@
+** Nodo Wait + NocoDB Update **
+
+Estos dos nodos cierran el flujo: primero pausan la ejecución para respetar los límites de la API, luego escriben los resultados en NocoDB.
+
+Nodo Wait (5 segundos):
+1. Añade un nodo "Wait" conectado a la salida del plan de mejora
+2. Configúralo en modo "Fixed Amount" con un valor de 5 segundos
+3. Esta pausa evita errores por exceso de solicitudes cuando el flujo procesa múltiples estudiantes en secuencia
+
+Nodo NocoDB Update:
+1. Añade un nodo "NocoDB" en modo "Update Row"
+2. Selecciona la credencial configurada anteriormente y la tabla de estudiantes
+3. Usa el ID del estudiante para identificar la fila a actualizar: {{ $('NocoDB Search').item.json.Id }}
+4. Mapea los campos a actualizar simplemente arrastrando el resultado "texto"
+5. Ejecuta el flujo completo y verifica que los datos aparezcan correctamente en NocoDB
+
+Con esto, el ciclo completo queda automatizado: consulta → análisis → plan → escritura.

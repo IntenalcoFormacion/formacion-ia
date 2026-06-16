@@ -1,0 +1,30 @@
+** Reto de la semana **
+
+Si completaste el flujo de análisis académico, estás listo para adaptarlo a otros contextos y ampliar sus capacidades.
+
+Parte 1 — Adapta el flujo a otro contexto:
+
+Elige uno de los siguientes escenarios y reconstruye el flujo sustituyendo los datos de estudiantes por los del nuevo contexto:
+
+- Retención de clientes: analiza clientes con bajo nivel de actividad y genera un mensaje de reactivación
+- Gestión de cartera: identifica deudores con mayor riesgo y sugiere acciones de cobro personalizadas
+- Recursos humanos: detecta empleados con indicadores de baja satisfacción y propone acciones de acompañamiento
+
+Cambia el System Prompt de ambos nodos LLM Chain para que se adapte al nuevo dominio. Ajusta los campos de NocoDB según la tabla que uses.
+
+Parte 2 — Integra Gmail al flujo:
+
+Una vez que el plan de mejora esté escrito en NocoDB, agrega un paso adicional para enviarlo por correo:
+
+1. Añade un nodo "Gmail" al final del flujo (Mira el video de como configurar el gmail de prueba en la pagina del curso - session 3)
+2. Configura la credencial de tu cuenta de Google
+3. Usa la dirección de correo del estudiante (o cliente) como destinatario
+4. Redacta el asunto y el cuerpo usando los campos generados por el LLM
+5. Prueba el flujo y verifica que el correo llegue correctamente
+
+
+Parte 3 - Adiciona un nodo de Schedule 
+
+El nodo Schedule permite programar la ejecucion de tu flujo en una fecha y hora predeterminada. Sigue su configuracion que es bastante intuitiva.
+
+Este reto integra cuatro herramientas clave — NocoDB, IA generativa, Gmail y Schedule — en un flujo completamente automatizado.

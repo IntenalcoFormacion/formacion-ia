@@ -1,1 +1,10 @@
-﻿
+** Clave API de NocoDB **
+
+Para conectar n8n con NocoDB necesitas un token de acceso personal. Sigue estos pasos:
+
+1. Inicia sesión en tu cuenta de NocoDB.
+2. Haz clic en el ícono de tu perfil (esquina inferior izquierda - mira el video)
+3. Ve a la sección "API Tokens"
+4. Crea un nuevo token siguiendo las instrucciones del video y cópialo
+
+Guarda este token en un lugar seguro — lo usarás para configurar la credencial en n8n. Una vez configurado como credencial reutilizable, no necesitarás volver a ingresarlo en cada nodo.

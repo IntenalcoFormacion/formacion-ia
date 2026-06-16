@@ -1,1 +1,14 @@
-﻿
+** Datos a usar en NocoDB **
+
+Para este ejercicio utilizarás una tabla de estudiantes en NocoDB con los siguientes campos:
+
+- Nombre: nombre completo del estudiante
+- Promedio: calificación promedio actual (escala 0–5)
+- Asistencia: porcentaje de asistencia al curso
+- Entregas pendientes: número de tareas no entregadas
+- Estado: campo de texto donde se escribirá el diagnóstico generado por IA
+- Plan de mejora: campo de texto donde se escribirá el plan generado por IA
+
+Puedes crear esta tabla manualmente en NocoDB o importarla desde un archivo CSV. Asegúrate de que los nombres de los campos coincidan exactamente con los que usarás en las expresiones del flujo de n8n.
+
+El enlace al archivo de datos de ejemplo se comparte durante la sesión.

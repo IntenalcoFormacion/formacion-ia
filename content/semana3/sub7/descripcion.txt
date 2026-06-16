@@ -1,0 +1,16 @@
+** Nodo LLM Chain — Plan de mejora **
+
+Este nodo toma el análisis generado en el paso anterior y redacta un plan de acción personalizado para cada estudiante.
+
+Configuración del nodo:
+1. Añade un segundo nodo "LLM Chain" conectado a la salida del nodo de análisis
+2. En chat messages selecciona "System" y pega el segundo prompt de la pagina del curso. Este prompt crea un plan de mejora con los siguientes puntos:
+ 
+   - Ser específico para los factores de riesgo identificados
+   - Estar redactado en lenguaje claro, dirigido al estudiante
+   - Incluir plazos o criterios de cumplimiento cuando sea posible
+
+4. En "User Message" incluye el análisis del perfil del paso anterior: con el mouse arrasta el "texto" del resultado.
+5. Conecta el mismo modelo de lenguaje que usaste en el nodo anterior - Gemini - Modelo 2.5 flash-lite.
+
+La salida de este nodo es el plan de mejora en texto, listo para ser escrito de vuelta en NocoDB.

@@ -1,1 +1,12 @@
-﻿
+** El flujo a construir **
+
+El flujo de esta sesión tiene seis componentes secuenciales:
+
+1. Manual Trigger — Inicia el proceso al presionar un botón
+2. NocoDB Search — Consulta y filtra los estudiantes en riesgo académico
+3. LLM Chain (Análisis del perfil) — Identifica los factores de riesgo de cada estudiante
+4. LLM Chain (Plan de mejora) — Redacta tres acciones concretas y personalizadas
+5. Wait (4 segundos) — Pausa para respetar los límites de la API
+6. NocoDB Update — Escribe los resultados generados de vuelta en la base de datos
+
+Este patrón es reutilizable en otros contextos: retención de clientes, gestión de cartera, recursos humanos y comercio exterior, entre otros.

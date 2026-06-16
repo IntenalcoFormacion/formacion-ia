@@ -1,0 +1,5 @@
+Para iniciar ingresas a la pagina del curso y sigue los pasos uno a uno. El primer paso es crear una cuenta en NocoDB, es solo dar click en el botón y luego en la pagina de inicio dar click en usar mi cuenta de gmail. Si google te pide permiso para usar tu información acepta. Al iniciar en NocoDB puedes saltar las preguntas iniciales dando click en skip.
+
+VB7GhGtx_pU_DAc hiarcos@gmail.com also Arcos usuario y clave n8n
+
+ffmpeg -i outputS2V10sin.mp4 -i audioS2V10.mp3 -c:v copy -c:a aac -map 0:v:0 -map 1:a:0 outputS2V10.mp4

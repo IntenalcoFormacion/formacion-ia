@@ -1,1 +1,16 @@
-﻿
+** Nodo LLM Chain — Análisis del perfil **
+
+Este nodo usa inteligencia artificial para interpretar los datos de cada estudiante y detectar sus factores de riesgo académico.
+
+Configuración del nodo:
+1. Añade un nodo "LLM Chain" conectado a la salida del nodo NocoDB Search
+2. En "User Message" pasa los datos del estudiante arrastrando con el mouse la palabra "fields" desde el JSON a la izquierda
+3. En "Chat Messages" pega el rol del modelo desde la pagina del curso en la session 3, este prompt le dice a Gemini lo siguiente:
+
+   - Indica que es un asesor académico que analiza perfiles de riesgo
+   - Especifica los campos que debe considerar (promedio, asistencia, entregas pendientes, etc.)
+   - Pide que identifique los factores de riesgo más relevantes para ese estudiante
+
+4. Conecta el modelo de lenguaje (en este caso Gemini) haciendo click en "+" en el nodo LLM. Verifica tus credenciales y escoge por ahora el modelo 2.4 flash-lite.
+
+El resultado de este nodo es un texto con el análisis del perfil, que será usado por el siguiente nodo para construir el plan de mejora.

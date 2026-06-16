@@ -7,7 +7,12 @@
       "mcp__Claude_Preview__preview_start",
       "Bash(Rename-Item \"C:\\\\Users\\\\hiarc\\\\OneDrive\\\\Claude\\\\FormacionIA\\\\content\\\\semana1\\\\sub1\\\\Screen Recording 2026-06-09 192614.mp4\" \"video.mp4\")",
       "WebFetch(domain:intenalco2.carrd.co)",
-      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\hiarc\\\\OneDrive\\\\Claude\\\\FormacionIA\\\\content\\\\semana1\" -Recurse | Where-Object { !$_.PSIsContainer } | Select-Object FullName)"
+      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\hiarc\\\\OneDrive\\\\Claude\\\\FormacionIA\\\\content\\\\semana1\" -Recurse | Where-Object { !$_.PSIsContainer } | Select-Object FullName)",
+      "WebFetch(domain:intenalco3.carrd.co)",
+      "Bash(npx serve *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3456)",
+      "Skill(update-config)",
+      "Skill(update-config:*)"
     ]
   }
 }

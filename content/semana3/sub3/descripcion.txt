@@ -1,1 +1,12 @@
-﻿
+** Credencial de NocoDB en n8n **
+
+Una vez que tienes tu token API, configúralo en n8n como credencial reutilizable:
+
+1. En n8n, ve a "Credentials" en el menú lateral
+2. Haz clic en "Add Credential"
+3. Busca y selecciona "NocoDB"
+4. Pega tu token API en el campo correspondiente
+5. Indica la URL de tu instancia de NocoDB
+6. Guarda la credencial con un nombre descriptivo (ej: "NocoDB Intenalco")
+
+Al guardarla como credencial, todos los nodos NocoDB de tus flujos podrán usarla sin necesidad de ingresar el token nuevamente. Esto también facilita el mantenimiento: si el token cambia, solo lo actualizas en un lugar.

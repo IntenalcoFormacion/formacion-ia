@@ -1,1 +1,11 @@
-﻿
+** Verificación del API **
+
+Antes de construir el flujo completo, es útil verificar que la conexión entre n8n y NocoDB funciona correctamente.
+
+1. Crea un flujo de prueba con dos nodos: Manual Trigger y NocoDB
+2. En el nodo NocoDB selecciona la operación "Search" sobre tu tabla de estudiantes
+3. Ejecuta el flujo y revisa la salida — deberías ver los registros de tu tabla
+4. Confirma que los nombres de los campos en la respuesta coinciden con los que usarás en las expresiones del flujo
+5. Si ves un error de autenticación, verifica que el token API y la URL de NocoDB en tu credencial sean correctos
+
+Esta prueba rápida te ahorra tiempo: detecta problemas de configuración antes de construir los nodos de IA.
