@@ -139,6 +139,13 @@
       font-size: .9rem; color: var(--muted);
       transition: transform .3s ease; flex-shrink: 0;
     }
+    .week-links { display: flex; gap: 8px; margin-left: auto; margin-right: 12px; flex-shrink: 0; }
+    .week-link-btn {
+      padding: 5px 16px; border-radius: 999px; font-size: .8rem; font-weight: 600;
+      background: #7bc67e; color: #1a3d1a; text-decoration: none;
+      transition: opacity .2s; white-space: nowrap;
+    }
+    .week-link-btn:hover { opacity: .8; }
     .week-body { display: none; border-top: 1px solid var(--border); }
     .week.open .week-body    { display: block; }
     .week-desc { padding: 16px 24px 18px; color: var(--muted); font-size: .9rem; line-height: 1.6; }
@@ -358,6 +365,10 @@
       <div class="week-info">
         <h2>Usando API's en n8n</h2>
         <p>Automatizaciones con criterio propio</p>
+      </div>
+      <div class="week-links" onclick="event.stopPropagation()">
+        <a href="https://flow.intenalco.cloud/" target="_blank" class="week-link-btn">Ir a n8n</a>
+        <a href="https://app.nocodb.com/signin/" target="_blank" class="week-link-btn">Ir a NocoDB</a>
       </div>
       <span class="week-chevron">▼</span>
     </div>
